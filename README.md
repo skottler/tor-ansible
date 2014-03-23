@@ -13,4 +13,4 @@ The machine you're going to turn into a Tor relay should have the root user conf
 Run ansible on the remote machine: `ansible-playbook -i "(remote IP or hostname)," -u root site.yml`. Make sure you've got the comma after the address of the machine.
 
 ## License
-All the code in this repository is licensed under the GPLv3. Check out LICENSE.md for the complete text of the license.
+All the code in this repository is licensed under the GPLv3. Check out the LICENSE file in this repo for the complete text of the license.
