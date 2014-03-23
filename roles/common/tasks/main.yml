@@ -1,0 +1,13 @@
+---
+- name: Install basic packages
+  apt: name={{ item }} state=installed
+  with_items:
+    - htop
+    - python-apt
+    - python-pycurl
+    - screen
+    - unattended-upgrades
+    - vim
+
+- include: hosts.yml tags=networking,hosts
+- include: ssh.yml tags=ssh,security

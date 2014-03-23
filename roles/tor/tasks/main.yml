@@ -1,0 +1,21 @@
+---
+
+- name: Add the tor debian repo to the system
+  apt_repository: repo="deb http://deb.torproject.org/torproject.org {{ ansible_lsb.codename }} main" state=present
+
+- name: Import the tor signing key into the apt-key database
+  apt_key: id=886DDD89 url=http://keys.gnupg.net/pks/lookup?op=get&search=0xEE8CBC9E886DDD89
+
+- name: apt-get update
+  command: apt-get update
+
+- name: Install tor and the project keyring
+  apt: pkg={{ item }} state=present
+  with_items:
+    - deb.torproject.org-keyring
+    - tor
+    - tor-arm
+
+- name: Setup tor with the proper configuration
+  template: src=torrc.j2 dest=/etc/tor/torrc
+  notify: restart tor

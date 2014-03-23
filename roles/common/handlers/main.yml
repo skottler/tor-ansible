@@ -1,0 +1,10 @@
+---
+
+- name: restart iptables
+  action: service name=iptables state=restarted
+
+- name: restart fail2ban
+  action: service name=fail2ban state=restarted
+
+- name: restart sshd
+  action: service name=ssh state=restarted

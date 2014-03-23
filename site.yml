@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  user: root
+  sudo: True
+  gather_facts: True
+  vars_files:
+    - vars/global.yml
+
+  roles:
+    - common
+    - tor
